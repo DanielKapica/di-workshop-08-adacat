@@ -6,7 +6,7 @@ class AdaCat {
     this.isSleeping = false
     this.isFed = false
     this.isPlaying = false
-    this.size = 30
+    this.size = 5
     this.message = ""
   }
 
@@ -84,12 +84,12 @@ class AdaCat {
     // the ideal weight for cats is 30
     // this futher they are from this, the less
     // healthy they are
-    var sizeDifferenceFromIdeal = Math.abs(this.size - 30)
+    var sizeDifferenceFromIdeal = Math.abs(this.size - 5)
 
     // sizeScore starts at thirty, and gets
     // smaller as the cat's size gets further
     // from the ideal weight
-    var sizeScore = 30 - sizeDifferenceFromIdeal
+    var sizeScore = 5 - sizeDifferenceFromIdeal
 
     // health score gets lower as the cat gets
     // more hungry
@@ -106,3 +106,4 @@ class AdaCat {
 }
 
 module.exports = AdaCat
+  
