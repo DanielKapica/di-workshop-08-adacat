@@ -70,7 +70,7 @@ describe('AdaCat', function() {
       var myCat = new AdaCat('oak', 'alex')
       var result = myCat.getDescription()
       var lines = result.split('\n')
-      expect(lines[2]).to.equal('they weigh 30 tonnes.')
+      expect(lines[2]).to.equal('they weigh 30 kilograms.')
     })
 
     it('includes the health level', function() {

@@ -48,7 +48,8 @@ class AdaCat {
 
 
   feed() {
-    var hunger = this.hunger - 1
+    if (!this.isSleeping){
+      var hunger = this.hunger - 1
 
     if (hunger < 3) {
       this.size = this.size + 1
@@ -56,6 +57,10 @@ class AdaCat {
 
     this.setHunger(hunger)
     return this.isFed = true
+    }else{
+      this.message = "The cat is sleeping. You cannot feed it!"
+    }
+    
   }
 
   nap() {
