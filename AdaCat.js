@@ -29,7 +29,7 @@ class AdaCat {
       'their hunger level is ' + this.hunger + '/10.',
 
       'they weigh ' + this.size + ' kilograms.',
-      'their health is ' + this.getHealth() + '/30.',
+      'their health is ' + this.getHealth() + '/5.',
       messageLine
     ]
 
@@ -72,16 +72,19 @@ class AdaCat {
   }
 
   play() {
-    var hunger = this.hunger + 3
-    if (hunger > 7) {
-      this.size = this.size - 1
+    if (!this.isSleeping){
+      var hunger = this.hunger + 3
+      if (hunger > 7) {
+        this.size = this.size - 1}
+        this.setHunger(hunger)
+        this.isPlaying = true
+      }else{
+        this.message = "The cat is sleeping. You cannot feed it!"
     }
-    this.setHunger(hunger)
-    this.isPlaying = true
   }
 
   getHealth() {
-    // the ideal weight for cats is 30
+    // the ideal weight for cats is 5
     // this futher they are from this, the less
     // healthy they are
     var sizeDifferenceFromIdeal = Math.abs(this.size - 5)
@@ -93,14 +96,11 @@ class AdaCat {
 
     // health score gets lower as the cat gets
     // more hungry
-    var healthScore = sizeScore - this.hunger
-
-    // max returns the biggest value, so health
-    // will never go below 0
-    if (healthScore < 0) {
-      healthScore = 0
+    if (healthScore >= 0){
+      var healthScore = sizeScore - this.hunger
+    }else{
+      var healthScore = 0
     }
-
     return healthScore
   }
 }
